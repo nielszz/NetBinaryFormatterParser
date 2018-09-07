@@ -43,7 +43,7 @@ def none(s):
 
 PrimitiveTypeEnumeration = {
 'Boolean':[1,pack_value, [1, '<B']],
-'Byte':[2, pack_value, [1, '<B']],
+'Byte':[2, pack_value, [1, '<b']],
 'Char':[3, pack_value, [1, '<b']],
 'Decimal':[5, LengthPrefixedString, 0],
 'Double':[6, pack_value, [8, '<Q']],
@@ -340,7 +340,7 @@ if __name__ == "__main__":
         binary += RecordType[1](myObject[str(o)][1])
 
     if args.encode:
-        binary = urllib.quote(base64.b64encode(binary))
+        binary = base64.b64encode(binary)
 
     if args.outputFile:
         f = open(args.outputFile, 'w')
